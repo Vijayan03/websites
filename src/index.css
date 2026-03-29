@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fffdf5;
+    color: #3d2314;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-bold text-rose-800 leading-tight;
+  }
+
+  .section-subtitle {
+    @apply font-accent text-rose-400 text-xl md:text-2xl mb-2;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-rose-500 text-rose-600 hover:bg-rose-500 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .card {
+    @apply bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28 px-4 md:px-8;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fef9e7; }
+::-webkit-scrollbar-thumb { background: #f43f5e; border-radius: 99px; }
+
+/* Wavy divider */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+}
+
+/* Animation delays for stagger */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Fade-in on scroll (JS-triggered) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
