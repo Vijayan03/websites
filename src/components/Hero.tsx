@@ -5,10 +5,12 @@ export default function Hero() {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const waMsg = encodeURIComponent('Hi Deva Ice Cream! I would like to enquire about your event services.');
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24"
     >
       {/* Background image */}
       <div
@@ -51,18 +53,20 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fadeUp delay-400">
-          <button
-            onClick={() => scrollTo('#contact')}
-            className="btn-primary text-base px-9 py-4 shadow-rose-700/40"
+          <a
+            href={`tel:${brand.phoneRaw}`}
+            className="inline-flex items-center gap-2 bg-white text-rose-600 font-bold text-base px-9 py-4 rounded-full shadow-lg hover:bg-rose-50 hover:-translate-y-0.5 transition-all duration-300"
           >
-            🎉 Book for Your Event
-          </button>
-          <button
-            onClick={() => scrollTo('#services')}
-            className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border-2 border-white/60 text-white font-semibold px-9 py-4 rounded-full hover:bg-white/30 transition-all duration-300"
+            📞 Call Now
+          </a>
+          <a
+            href={`https://wa.me/${brand.whatsapp}?text=${waMsg}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold text-base px-9 py-4 rounded-full shadow-lg hover:-translate-y-0.5 transition-all duration-300"
           >
-            Explore Services
-          </button>
+            💬 WhatsApp Us
+          </a>
         </div>
 
         {/* Stats bar */}

@@ -46,7 +46,13 @@ export default function Navbar() {
           ))}
           <a
             href={`tel:${brand.phoneRaw}`}
-            className="ml-4 btn-primary text-sm py-2.5 px-5"
+            className="ml-2 text-sm font-semibold text-rose-700 hover:text-rose-500 px-3 py-2 rounded-full hover:bg-rose-50 transition-all duration-200"
+          >
+            📞 {brand.phone}
+          </a>
+          <a
+            href={`tel:${brand.phoneRaw}`}
+            className="ml-2 btn-primary text-sm py-2.5 px-5"
           >
             <IceCream size={16} /> Book Now
           </a>

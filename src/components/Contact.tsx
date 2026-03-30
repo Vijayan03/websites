@@ -54,9 +54,9 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-6">
             {/* Info cards */}
             {[
-              { icon: <Phone size={20} />, label: 'Call / WhatsApp', value: brand.phone, href: `tel:${brand.phoneRaw}` },
-              { icon: <Mail size={20} />,  label: 'Email Us',        value: brand.email, href: `mailto:${brand.email}` },
-              { icon: <MapPin size={20} />, label: 'Our Location',   value: brand.address, href: '#' },
+              { icon: <Phone size={20} />, label: 'Call Us Now', value: brand.phone, href: `tel:${brand.phoneRaw}` },
+              { icon: <Mail size={20} />,  label: 'Email Us',    value: brand.email, href: `mailto:${brand.email}` },
+              { icon: <MapPin size={20} />, label: 'Our Location', value: brand.address, href: '#' },
             ].map((item, i) => (
               <a
                 key={item.label}
@@ -76,8 +76,22 @@ export default function Contact() {
               </a>
             ))}
 
+            {/* WhatsApp quick action */}
+            <a
+              href={`https://wa.me/${brand.whatsapp}?text=${encodeURIComponent('Hi Deva Ice Cream! I would like to enquire about your event services.')}`}
+              target="_blank"
+              rel="noreferrer"
+              className="reveal flex items-center justify-center gap-3 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-2xl shadow-md hover:-translate-y-0.5 transition-all duration-300 delay-300"
+            >
+              <span className="text-xl">💬</span>
+              <div className="text-left">
+                <p className="text-xs font-normal opacity-90">Chat directly on</p>
+                <p className="font-bold">WhatsApp: {brand.phone}</p>
+              </div>
+            </a>
+
             {/* Map embed */}
-            <div className="reveal rounded-3xl overflow-hidden shadow-md border border-rose-100 delay-300">
+            <div className="reveal rounded-3xl overflow-hidden shadow-md border border-rose-100 delay-400">
               <iframe
                 src={brand.mapEmbedUrl}
                 width="100%"
