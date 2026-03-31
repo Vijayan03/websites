@@ -9,11 +9,11 @@ export const brand = {
   subTagline: "Premium ice cream & gourmet snacks crafted for weddings, parties, and unforgettable celebrations.",
   phone: "+91 9025134105",
   phoneRaw: "+91 9025134105",
-  whatsapp: "+91 9025134105",
+  whatsapp: "919025134105",
   email: "hello@devaicecream.com",
   address: "Meingnanam @ Manju, South Mada Street, Nellorepet, Gudiyatham, Vellore - 632602, Tamil Nadu, India",
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Gudiyatham,+Vellore,+Tamil+Nadu&output=embed",
+    "https://maps.google.com/maps?q=Gudiyatham,+Tamil+Nadu,+India&t=&z=14&ie=UTF8&iwloc=&output=embed",
   socialLinks: {
     instagram: "https://instagram.com/devaicecream",
     facebook: "https://facebook.com/devaicecream",
@@ -93,13 +93,36 @@ export const services: Service[] = [
   },
 ];
 
-export const galleryImages: string[] = [
-  "https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?w=600&q=80", // Wedding dessert serving / ice cream scoop
-  "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&q=80", // Real event style dessert counter
-  "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&q=80", // Sliced ice cream or dessert in disposable cups
-  "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=600&q=80", // Live serving at an event
-  "https://images.unsplash.com/photo-1620023647184-a16df169fbde?w=600&q=80", // Guest taking ice cream or holding it
-  "https://images.unsplash.com/photo-1543362905-24e54cd3b782?w=600&q=80", // Simple vanilla/butterscotch looking serving
+export interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+export const galleryImages: GalleryImage[] = [
+  {
+    src: "https://images.unsplash.com/photo-1567206563114-c179706a56c4?w=600&q=80",
+    alt: "Ice cream scoops served in cups at a wedding event",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&q=80",
+    alt: "Butterscotch and vanilla ice cream dessert serving",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80",
+    alt: "Guests enjoying ice cream at a live stall",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=80",
+    alt: "Wedding dessert counter setup with variety of ice creams",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&q=80",
+    alt: "Fruit salad and ice cream stall at an outdoor event",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=600&q=80",
+    alt: "Premium ice cream served in waffle cones at reception",
+  },
 ];
 
 export interface Testimonial {

@@ -18,20 +18,17 @@ export default function Testimonials() {
           <h2 className="reveal section-title delay-100">What They Say About Us</h2>
         </div>
 
-        {/* Featured testimonial */}
+        {/* Featured testimonial — text only */}
         <div className="reveal card p-8 md:p-12 text-center delay-200 mb-8">
-          <div className="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-rose-200 shadow-md bg-rose-100 flex items-center justify-center text-rose-500 font-display text-2xl font-bold">
-            {testimonials[active].name[0]}
-          </div>
-          <div className="flex justify-center gap-1 mb-4">
+          <div className="flex justify-center gap-1 mb-6">
             {Array.from({ length: testimonials[active].rating }).map((_, i) => (
-              <span key={i} className="text-yellow-400 text-xl">★</span>
+              <span key={i} className="text-yellow-400 text-2xl">★</span>
             ))}
           </div>
           <blockquote className="font-display text-xl md:text-2xl italic text-rose-800 leading-relaxed mb-6">
             "{testimonials[active].quote}"
           </blockquote>
-          <p className="font-semibold text-rose-700">{testimonials[active].name}</p>
+          <p className="font-bold text-rose-700 text-lg">{testimonials[active].name}</p>
           <p className="text-sm text-rose-900/50 mt-1">{testimonials[active].event}</p>
         </div>
 
