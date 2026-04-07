@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Vijayan/websites/devratstudio -not -path */node_modules/* -not -path */.next/* -type f -o -type d)"
+    ]
+  }
+}

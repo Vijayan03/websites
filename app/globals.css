@@ -1,0 +1,229 @@
+/* Fonts are self-hosted by next/font/google — no @import needed */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Font variables — values overridden by next/font CSS custom properties */
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Colors */
+  --ivory: #F9F6F0;
+  --cream: #F2EDE4;
+  --sand: #E8DFD0;
+  --stone: #C8BBAA;
+  --mist: #8EA8B4;
+  --slate: #4A6670;
+  --ocean: #2D5A6B;
+  --deep: #1A3A47;
+  --ink: #0D1F27;
+  --accent: #5B8FA8;
+  --glow: #A8C5D4;
+  --ember: #C4794A;
+  --sage: #7A9E8E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--stone);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate);
+}
+
+/* Selection */
+::selection {
+  background: var(--glow);
+  color: var(--ink);
+}
+
+/* Font utility classes */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Globe canvas */
+.globe-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Accent text — solid ocean color instead of gradient.
+ * Solid colors feel more intentional and render faster
+ * (no background-clip repaint on scroll).
+ */
+.gradient-text {
+  color: var(--ocean);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+}
+
+.gradient-text-warm {
+  color: var(--ember);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+}
+
+/* Smooth underline accent */
+.line-decoration {
+  position: relative;
+}
+.line-decoration::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.35;
+}
+
+/* Service card hover */
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.service-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Dot grid background */
+.dot-grid {
+  background-image: radial-gradient(circle, var(--stone) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Section reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glow ring effect */
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(91, 143, 168, 0.18),
+              0 0 32px rgba(91, 143, 168, 0.06);
+}
+
+/* Tag/pill */
+.pill {
+  background: rgba(91, 143, 168, 0.08);
+  border: 1px solid rgba(91, 143, 168, 0.2);
+  color: var(--slate);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 14px;
+  display: inline-block;
+}
+
+/* Animated underline on links */
+.hover-line {
+  position: relative;
+  text-decoration: none;
+}
+.hover-line::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.hover-line:hover::after {
+  width: 100%;
+}
+
+/* Number display */
+.big-number {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 1;
+  color: var(--sand);
+  letter-spacing: -0.02em;
+}
+
+/* Contact icon button */
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border: 1px solid var(--sand);
+  border-radius: 10px;
+  background: white;
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  color: var(--ink);
+}
+.contact-btn:hover {
+  border-color: var(--accent);
+  background: rgba(91, 143, 168, 0.04);
+  transform: translateY(-2px);
+}
